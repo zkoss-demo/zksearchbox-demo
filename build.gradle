@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.gretty:gretty:+'
+    }
+}
+
+apply plugin: 'war'
+apply plugin: 'org.gretty'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    maven { url 'https://mavensync.zkoss.org/eval' }
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.zkoss.zk:zul:${zkVersion}"
+    compile "org.zkoss.zk:zkmax:${zkVersion}"
+}
+
+gretty {
+    httpPort = 8080
+}
