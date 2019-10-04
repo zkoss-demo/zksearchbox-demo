@@ -1,3 +1,36 @@
 <zk>
-	Hello world
+    <window title="ZK User Survey"
+            width="600px" vflex="min" mode="overlapped"
+            position="center,top" border="1"
+            viewModel="@id('vm') @init('zk.demo.SurveyVM')">
+        <grid>
+            <columns>
+                <column/>
+                <column/>
+            </columns>
+            <rows>
+                <row>
+                    Your name
+                    <textbox placeholder="Full name" hflex="1" value="@bind(vm.name)"/>
+                </row>
+                <row>
+                    Where do you live
+                    <searchbox model="@init(vm.country)" placeholder="An unknown place" autoclose="true" hflex="1">
+                        <template name="model">
+                            <html><![CDATA[
+                            <i class="z-icon-globe"></i> ${each}
+                            ]]></html>
+                        </template>
+                    </searchbox>
+                </row>
+                <row>
+                    Familar programming languages
+                    <searchbox model="@init(vm.proglangs)" placeholder="None" hflex="1"/>
+                </row>
+                <row spans="2">
+                    <button label="Submit" onClick="@command('show')" style="float: right"/>
+                </row>
+            </rows>
+        </grid>
+    </window>
 </zk>

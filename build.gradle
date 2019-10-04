@@ -16,6 +16,8 @@ targetCompatibility = '1.8'
 
 repositories {
     maven { url 'https://mavensync.zkoss.org/eval' }
+    maven { url 'https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/' } // jasperreport
+    jcenter()
     mavenCentral()
 }
 
